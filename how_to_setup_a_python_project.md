@@ -10,7 +10,7 @@
 3. [Create your project environment and create a Git repository](#Create-your-project-environment-and-create-a-Git-repository)  
 4. [Set VSCode as default .gitconfig editor](#Set-VSCode-as-default-.gitconfig-editor)  
 5. [Configure .gitignore](#Configure-.gitignore)  
-6. [Add source files to the local repository](#Add-source-files-to-the-local-repository)  
+6. [Add source files to the local Git repository](#Add-source-files-to-the-local-Git-repository)  
 7. [Sync local Git repository to GitHub for the first time](#Sync-local-Git-repository-to-GitHub-for-the-first-time)  
 
 
@@ -42,7 +42,7 @@ As a user, you are expected to extend the editor until it fits your needs. That 
 
 To enable Python in VSCode, you need to install the official (Microsoft) Python extension.  
 
-Press *control shift X* to open the extensions view. Type *python* in the search and filter input field at the top of the view. A lot of options will pop up. Select the Python extension, authored by Microsoft, and install it. It should be at or near the top of the suggestion list. Alternatively, go to the [official Microsoft Python extension web page](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and install the extension from there.  
+Press *control shift X* to open the Extensions pane. Type *python* in the search and filter input field at the top of the pane. A lot of options will pop up. Select the Python extension, authored by Microsoft, and install it. It should be at or near the top of the suggestion list. Alternatively, go to the [official Microsoft Python extension web page](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and install the extension from there.  
 
 Note that you need to have Python (the language) installed on your computer to be able to use the extension. If that is not the case, [download and install the latest version](https://www.python.org/).  
 
@@ -84,17 +84,19 @@ Python is the only extension needed to start coding. But you can improve your wo
 1. Create a folder (for instance by using the VSCode terminal (open with 
 *control ,*)  
 1. Navigate into the folder from the terminal  
-1. Type:  
+1. Type (replace <...> with your project name):  
 
 ``` shell
 git init <folder name of your project>
 ```
 
-Git will create the folder, and it will create a .git folder within the main folder, which will hold the Git configs and history.  
+Git will now create the project folder, and it will create a .git folder within the main folder, which will hold the Git configs and history. You never have to navigate into that folder manually, it is Git's work folder.  
 
-Open VSCode, and type *control k* *control o*, or select 'File/Open Folder...'. A folder selection window will pop up. Navigate to the folder you just created and select this folder. Any file in the folder will now be displayed in the file view column (open that view by pressing *control shift e*).  
+Congratulations, you just created your first local Git project. From now on, when you create a file within this folder or update code in an existing code file, Git will (if you let it) track the changes (*stage* the change) and set status checkpoints (*commit* the change).  
 
-To enable VSCode to store Git repository specific settings, it needs to create a *workspace*. By default it will use the current project folder (which you just selected). Select 'File/Save Workspace As...' and save the workspace configuration in the Git repository folder.  
+Open VSCode, and type *control k* *control o*, or select 'File/Open Folder...'. A folder selection window will pop up. Navigate to the folder you just created and select this folder. Any file in the folder will now be displayed in the Explorer pane (open this pane by pressing *control shift e*).  
+
+To enable VSCode to store project specific settings, it needs to create a *workspace*. By default it will use the current project folder (which you just selected). Select 'File/Save Workspace As...' and save the workspace configuration in the Git repository folder.  
 
 
 
@@ -124,7 +126,7 @@ Now, when you type:
 git difftool
 ```
 ...in the command line, Git will ask if you want to compare versions of a particular changed file. Answering Yes or No, you will traverse through the list of changed files in the current repository. If you answer Yes, VSCode will be started and the current version will be shown next to the last committed version.  
-Alternatively, you can right click on the file name in the *Source Control* view of VSCode and select the *Open Changes* context menu choice. This will have the same effect.  
+Alternatively, you can right click on the file name in the *Source Control* pane of VSCode and select the *Open Changes* context menu choice. This will have the same effect.  
 
 
 
@@ -145,10 +147,15 @@ settings.json
 
 
 
-## Add source files to the local repository
+## Add source files to the local Git repository
 
-When you open a new file 
+As stated before in section [Create your project environment and create a Git repository](#Create-your-project-environment-and-create-a-Git-repository): when you create a new file in VSCode within the active workspace, the file will be visible in the Explorer pane on the left side of the screen. As you might remember, you open this pane by pressing *control shift e*. Note that any ignored file (filtered by the rules in the .gitignore file) will be displayed in a slightly washed out grey color, to show that it is not controlled by Git.  
 
+When you add code (or text) to the new file, and save it while progressing (by pressing *control s*), you will notice that the file is tagged with a 'U' sitting behind it, meaning that it is *untracked*.  
+
+To add the new file to Git's version tracking, you must select the file in the Source Control pane, and when you hover over its filename with the mouse in the Source Control pane, a few icons will be displayed. Click the plus (+) icon. The file is now added to the local Git project: its changes have been staged (this is Git-speak for preparing a checkpoint).  
+
+After some time you want to make the staged changes irreversible. You do this by committing the change. At the top of the Source Control panel you type a text in the text box to summarize the change in one line. Then you press *control alt enter*. The changed file (or files if you changed more than one) will now be saved into Git as the new base version, but only all changes that have been staged before.   
 
 
 ## Sync local Git repository to GitHub for the first time  
