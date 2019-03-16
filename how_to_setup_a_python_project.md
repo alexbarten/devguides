@@ -1,6 +1,17 @@
-# How to setup a Python project  
+# How to setup a Python programming project  
+
+## Introduction
+
+This document has been constructed for developers who want to start coding Python in a distributed project (with a Git server). It is aimed at enterprise developers, but anyone can obviously use this documentation.
+
+I wrote this document, because it took me quite some time to gather the information required to have a well functioning set up. Lots of introductions on the internet skip important steps or assume a lot of knowledge on the part of the reader, or are just incomplete or stale. At the same time a lot of developers ask questions about these steps, for instance on StackOverflow.
+
+I tried to address the flaws of other descriptions, for example how to set up a HTTPS-connection to GitHub. Even GitHub's own documentation on this topic is both incomplete and flat out wrong.
+
+*Disclaimer: the current version is work in progress, and as such quite incomplete. This will change over time.*
 
 
+---
 ## Setting up Visual Studio Code
 
 Microsoft Visual Studio Code (VSCode) is a free and lean code editor, that supports web programming languages (HTML, (S)CSS, JavaScript, TypeScript) and a number of web frameworks out of the box.  
@@ -10,8 +21,8 @@ It is actively maintained for Windows, Linux and MacOS.
 VSCode is very popular, and thousands of extensions have been created to add functionality. This is the architecture of VSCode - it provides very flexible extension APIs, which can use and integrate with nearly any functionality of the editor.  
 
 As a user, you are expected to extend the editor until it fits your needs. That is what we will do in this section.  
-  
----
+
+
 ### Python configuration
 
 To enable Python in VSCode, you need to install the official (Microsoft) Python extension.  
@@ -52,6 +63,7 @@ Python is the only extension needed to start coding. But you can improve your wo
 * Spell Right (Bartosz Antosik) - Interactive spell checker  
 
 
+
 ## Create your project environment and create a Git repository  
 
 1. Create a folder (for instance by using the VSCode terminal (open with 
@@ -69,7 +81,8 @@ Open VSCode, and type *control k* *control o*, or select 'File/Open Folder...'. 
 
 To enable VSCode to store Git repository specific settings, it needs to create a *workspace*. By default it will use the current project folder (which you just selected). Select 'File/Save Workspace As...' and save the workspace configuration in the Git repository folder.  
 
-  
+
+
 ## Set VSCode as default .gitconfig editor  
 
 Open a VSCode (or other) terminal and type  
@@ -99,6 +112,7 @@ git difftool
 Alternatively, you can right click on the file name in the *Source Control* view of VSCode and select the *Open Changes* context menu choice. This will have the same effect.  
 
 
+
 ## Configure .gitignore  
 
 The .gitignore file contains files that are not to be considered by Git as project files. Files that comply to this pattern will not be tracked by Git. This should apply to files that are local, like your personal configurations, cache files, scratch files, or local test artefacts.  
@@ -115,9 +129,12 @@ settings.json
 * the .code-workspace file is the workspace configuration in VSCode.  
 
 
+
 ## Add source files to the local repository
 
 When you open a new file 
+
+
 
 ## Sync local Git repository to GitHub for the first time  
 
