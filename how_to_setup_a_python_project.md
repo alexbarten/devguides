@@ -1,15 +1,66 @@
 # How to setup a Python project  
 
-## Setting up VSCode  
+## Setting up Visual Studio Code
 
-* Python extension
-* Python specific and MarkDown specific rulers
+Microsoft Visual Studio Code (VSCode) is a free and lean code editor, that supports web programming languages (HTML, (S)CSS, JavaScript, TypeScript) and a number of web frameworks out of the box.  
+
+It is actively maintained for Windows, Linux and MacOS.  
+
+VSCode is very popular, and thousands of extensions have been created to add functionality. This is the architecture of VSCode - it provides very flexible extension APIs, which can use and integrate with nearly any functionality of the editor.  
+
+As a user, you are expected to extend the editor until it fits your needs. That is what we will do in this section.  
+  
+
+### Python configuration
+
+To enable Python in VSCode, you need to install the official (Microsoft) Python extension.  
+
+Press *control shift X* to open the extensions view. Type *python* in the search and filter input field at the top of the view. A lot of options will pop up. Select the Python extension, authored by Microsoft, and install it. It should be at or near the top of the suggestion list. Alternatively, go to the [official Microsoft Python extension web page](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and install the extension from there.  
+
+Note that you need to have Python (the language) installed on your computer to be able to use the extension. If that is not the case, [download and install the latest version](https://www.python.org/).  
+
+After installing the extension, you can start programming right away. To improve the programming experience, you are invited to configure VSCode to suit your needs. One suggestion is to add vertical rulers on position 72 (for Docstrings) and 79 (for Python code). You can add these by configuring a workspace (= project) specific configuration file, or on a global level. This is how it works:  
+
+* Open Settings (*control ,*)  
+* Click on the accolade {} icon in the top right of the VSCode window.  
+* *settings.json* is opened in a tab. This is your local configuration file.  
+* Add this code to settings.json:  
+
+``` json
+{
+    "[markdown]": {
+        "editor.wordWrap": "wordWrapColumn",
+        "editor.rulers": [
+            80
+        ]
+    },
+    "[python]": {
+        "editor.wordWrap": "wordWrapColumn",
+        "editor.rulers": [
+            72,
+            79
+        ]
+}
+```
+
+When you save the file, vertical rulers will pop up when you edit a Python source file, and when editing MarkDown files as well.  
+
+
+### Other nice extensions
+
+Python is the only extension needed to start coding. But you can improve your workflow significantly by installing additional extensions. For example:  
+
+* File Utils (Steffen Leistner) - Add lots of file operations  
+* Git History (Don Jayamanne)   - Compare several versions of the same source  
+* gitignore (CodeZombie)        - Language support of .gitignore files  
+* List Files (Don Jayamanne)    - List and open files quicker  
+* Spell Right (Bartosz Antosik) - Spell checker  
 
 
 ## Create your project environment and create a Git repository  
 
 1. Create a folder (for instance by using the VSCode terminal (open with 
-ctrl ,)  
+*control ,*)  
 1. Navigate into the folder from the terminal  
 1. Type:  
 
@@ -50,7 +101,7 @@ Alternatively, you can right click on the file name in the *Source Control* view
 
 ## Configure .gitignore  
 
-The .gitignore file contains files that are not te be considered by Git as project files. Files that comply to this pattern will not be tracked by Git. This should apply to files that are local, like your personal configurations, cache files, scratch files, or local test artefacts.  
+The .gitignore file contains files that are not to be considered by Git as project files. Files that comply to this pattern will not be tracked by Git. This should apply to files that are local, like your personal configurations, cache files, scratch files, or local test artefacts.  
 
 1. Create a ".gitignore" file in the main repo folder from VSCode.  
 1. Add patterns to the file, for example:  
@@ -67,6 +118,6 @@ settings.json
 ## Add source files to the local repository
 
 
-## Sync local Git repository to Github for the first time  
+## Sync local Git repository to GitHub for the first time  
 
-To move all local source files to a Github repo, you need to 
+To move all local source files to a GitHub repo, you need to 
