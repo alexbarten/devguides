@@ -6,7 +6,7 @@
    * [Setting up Visual Studio Code](#Setting-up-Visual-Studio-Code)  
    * [Python configuration](#Python-configuration)  
 
-2. [Other nice extensions](Other-nice-extensions)  
+2. [Other nice extensions](#Other-nice-extensions)  
 3. [Create your project environment and create a Git repository](#Create-your-project-environment-and-create-a-Git-repository)  
 4. [Set VSCode as default .gitconfig editor](#Set-VSCode-as-default-.gitconfig-editor)  
 5. [Configure .gitignore](#Configure-.gitignore)  
