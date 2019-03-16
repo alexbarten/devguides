@@ -28,12 +28,6 @@ After installing the extension, you can start programming right away. To improve
 
 ``` json
 {
-    "[markdown]": {
-        "editor.wordWrap": "wordWrapColumn",
-        "editor.rulers": [
-            80
-        ]
-    },
     "[python]": {
         "editor.wordWrap": "wordWrapColumn",
         "editor.rulers": [
@@ -43,7 +37,7 @@ After installing the extension, you can start programming right away. To improve
 }
 ```
 
-When you save the file, vertical rulers will pop up when you edit a Python source file, and when editing MarkDown files as well.  
+When you save the file, vertical rulers will pop up when you edit a Python source file.  
 
 
 ### Other nice extensions
