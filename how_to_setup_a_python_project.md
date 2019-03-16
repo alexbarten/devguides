@@ -1,6 +1,5 @@
 # How to setup a Python project  
 
-<!-- TOC -->autoauto- [How to setup a Python project](#how-to-setup-a-python-project)auto    - [Setting up Visual Studio Code](#setting-up-visual-studio-code)auto        - [Python configuration](#python-configuration)auto        - [Other nice extensions](#other-nice-extensions)auto    - [Create your project environment and create a Git repository](#create-your-project-environment-and-create-a-git-repository)auto    - [Set VSCode as default .gitconfig editor](#set-vscode-as-default-gitconfig-editor)auto    - [Configure .gitignore](#configure-gitignore)auto    - [Add source files to the local repository](#add-source-files-to-the-local-repository)auto    - [Sync local Git repository to GitHub for the first time](#sync-local-git-repository-to-github-for-the-first-time)autoauto<!-- /TOC -->
 
 ## Setting up Visual Studio Code
 
