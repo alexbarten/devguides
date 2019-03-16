@@ -22,7 +22,7 @@ Note that you need to have Python (the language) installed on your computer to b
 After installing the extension, you can start programming right away. To improve the programming experience, you are invited to configure VSCode to suit your needs. One suggestion is to add vertical rulers on position 72 (for Docstrings) and 79 (for Python code). You can add these by configuring a workspace (= project) specific configuration file, or on a global level. This is how it works:  
 
 * Open Settings (*control ,*)  
-* Click on the accolade {} icon in the top right of the VSCode window.  
+* Click on the accolade **{ }** icon in the top right of the VSCode window.  
 * *settings.json* is opened in a tab. This is your local configuration file.  
 * Add this code to settings.json:  
 
@@ -48,7 +48,7 @@ Python is the only extension needed to start coding. But you can improve your wo
 * Git History (Don Jayamanne)   - Compare several versions of the same source  
 * gitignore (CodeZombie)        - Language support of .gitignore files  
 * List Files (Don Jayamanne)    - List and open files quicker  
-* Spell Right (Bartosz Antosik) - Spell checker  
+* Spell Right (Bartosz Antosik) - Interactive spell checker  
 
 
 ## Create your project environment and create a Git repository  
@@ -63,6 +63,11 @@ git init <folder name of your project>
 ```
 
 Git will create the folder, and it will create a .git folder within the main folder, which will hold the Git configs and history.  
+
+Open VSCode, and type *control k* *control o*, or select 'File/Open Folder...'. A folder selection window will pop up. Navigate to the folder you just created and select this folder. Any file in the folder will now be displayed in the file view column (open that view by pressing *control shift e*).  
+
+To enable VSCode to store Git repository specific settings, it needs to create a *workspace*. By default it will use the current project folder (which you just selected). Select 'File/Save Workspace As...' and save the workspace configuration in the Git repository folder.  
+
   
 ## Set VSCode as default .gitconfig editor  
 
@@ -111,6 +116,7 @@ settings.json
 
 ## Add source files to the local repository
 
+When you open a new file 
 
 ## Sync local Git repository to GitHub for the first time  
 
