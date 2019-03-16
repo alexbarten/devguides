@@ -1,4 +1,20 @@
-##  1. <a name='Introduction'></a>Introduction
+# How to setup a Python programming project  
+
+## Contents
+
+1. [Introduction](#Introduction)  
+   * [Setting up Visual Studio Code](#Setting-up-Visual-Studio-Code)  
+   * [Python configuration](#Python-configuration)  
+
+2. [Other nice extensions](Other-nice-extensions)  
+3. [Create your project environment and create a Git repository](#Create-your-project-environment-and-create-a-Git-repository)  
+4. [Set VSCode as default .gitconfig editor](#Set-VSCode-as-default-.gitconfig-editor)  
+5. [Configure .gitignore](#Configure-.gitignore)  
+6. [Add source files to the local repository](#Add-source-files-to-the-local-repository)  
+7. [Sync local Git repository to GitHub for the first time](#Sync-local-Git-repository-to-GitHub-for-the-first-time)  
+
+
+## Introduction
 
 This document has been constructed for developers who want to start coding Python in a distributed project (with a Git server). It is aimed at enterprise developers, but anyone can obviously use this documentation.
 
@@ -10,27 +26,8 @@ I tried to address the flaws of other descriptions, for example how to set up a 
 
 ---
 
-## Contents  
 
-<!-- vscode-markdown-toc -->
-* 1. [Introduction](#Introduction)
-* 2. [Setting up Visual Studio Code](#SettingupVisualStudioCode)
-	* 2.1. [Python configuration](#Pythonconfiguration)
-	* 2.2. [Other nice extensions](#Otherniceextensions)
-* 3. [Create your project environment and create a Git repository](#CreateyourprojectenvironmentandcreateaGitrepository)
-* 4. [Set VSCode as default .gitconfig editor](#SetVSCodeasdefault.gitconfigeditor)
-* 5. [Configure .gitignore](#Configure.gitignore)
-* 6. [Add source files to the local repository](#Addsourcefilestothelocalrepository)
-* 7. [Sync local Git repository to GitHub for the first time](#SynclocalGitrepositorytoGitHubforthefirsttime)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc --># How to setup a Python programming project  
-
-
-##  2. <a name='SettingupVisualStudioCode'></a>Setting up Visual Studio Code
+## Setting up Visual Studio Code
 
 Microsoft Visual Studio Code (VSCode) is a free and lean code editor, that supports web programming languages (HTML, (S)CSS, JavaScript, TypeScript) and a number of web frameworks out of the box.  
 
@@ -41,7 +38,7 @@ VSCode is very popular, and thousands of extensions have been created to add fun
 As a user, you are expected to extend the editor until it fits your needs. That is what we will do in this section.  
 
 
-###  2.1. <a name='Pythonconfiguration'></a>Python configuration
+### Python configuration
 
 To enable Python in VSCode, you need to install the official (Microsoft) Python extension.  
 
@@ -70,7 +67,7 @@ After installing the extension, you can start programming right away. To improve
 When you save the file, vertical rulers will pop up when you edit a Python source file.  
 
 
-###  2.2. <a name='Otherniceextensions'></a>Other nice extensions
+### Other nice extensions
 
 Python is the only extension needed to start coding. But you can improve your workflow significantly by installing additional extensions. For example:  
 
@@ -82,7 +79,7 @@ Python is the only extension needed to start coding. But you can improve your wo
 
 
 
-##  3. <a name='CreateyourprojectenvironmentandcreateaGitrepository'></a>Create your project environment and create a Git repository  
+## Create your project environment and create a Git repository  
 
 1. Create a folder (for instance by using the VSCode terminal (open with 
 *control ,*)  
@@ -101,7 +98,7 @@ To enable VSCode to store Git repository specific settings, it needs to create a
 
 
 
-##  4. <a name='SetVSCodeasdefault.gitconfigeditor'></a>Set VSCode as default .gitconfig editor  
+## Set VSCode as default .gitconfig editor  
 
 Open a VSCode (or other) terminal and type  
 ``` shell  
@@ -131,7 +128,7 @@ Alternatively, you can right click on the file name in the *Source Control* view
 
 
 
-##  5. <a name='Configure.gitignore'></a>Configure .gitignore  
+## Configure .gitignore  
 
 The .gitignore file contains files that are not to be considered by Git as project files. Files that comply to this pattern will not be tracked by Git. This should apply to files that are local, like your personal configurations, cache files, scratch files, or local test artefacts.  
 
@@ -148,12 +145,12 @@ settings.json
 
 
 
-##  6. <a name='Addsourcefilestothelocalrepository'></a>Add source files to the local repository
+## Add source files to the local repository
 
 When you open a new file 
 
 
 
-##  7. <a name='SynclocalGitrepositorytoGitHubforthefirsttime'></a>Sync local Git repository to GitHub for the first time  
+## Sync local Git repository to GitHub for the first time  
 
 To move all local source files to a GitHub repo, you need to 
