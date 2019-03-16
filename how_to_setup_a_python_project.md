@@ -81,6 +81,12 @@ Python is the only extension needed to start coding. But you can improve your wo
 
 ## Create your project environment and create a Git repository  
 
+Why would you create a Git repository? Git does several things for you.  
+1. It adds discipline. You create or change code, you stage the changes, you commit the changes and think about the consequences while you do it. 
+1. It creates an unbreakable trail of changes. You can see through the history of your developed solutions, and fall back to an older state, or analyze when you introduced an error.
+1. As you add files to the repository, you think about its size, about its functionality and about the current state of things. What to release? What to postpone? Because you add these formal steps of committing changes, you are more aware of each step you take.  
+
+So, how to create a Git repository?
 1. Create a folder (for instance by using the VSCode terminal (open with 
 *control ,*)  
 1. Navigate into the folder from the terminal  
@@ -160,4 +166,8 @@ After some time you want to make the staged changes irreversible. You do this by
 
 ## Sync local Git repository to GitHub for the first time  
 
-To move all local source files to a GitHub repo, you need to 
+You could work forever with local Git repositories. 
+
+GitHub is a Git server. There are several others, like GitLab and Microsoft TFS/Azure. A Git server has the ability to store multiple Git repositories. You can synchronize your local repository once, if you started locally (as described before), and from then on regard the version on the server as the master.
+
+To move all local source files to a GitHub repo, you need to create a repository in GitHub first.
