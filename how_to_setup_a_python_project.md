@@ -87,8 +87,8 @@ Why would you create a Git repository? Git does several things for you.
 1. As you add files to the repository, you think about its size, about its functionality and about the current state of things. What to release? What to postpone? Because you add these formal steps of committing changes, you are more aware of each step you take.  
 
 So, how to create a Git repository?
-1. Create a folder (for instance by using the VSCode terminal (open with 
-*control ,*)  
+1. Create a folder by using the VSCode terminal (open with 
+*control shift `*)  
 1. Navigate into the folder from the terminal  
 1. Type (replace <...> with your project name):  
 
@@ -98,9 +98,9 @@ git init <folder name of your project>
 
 Git will now create the project folder, and it will create a .git folder within the main folder, which will hold the Git configs and history. You never have to navigate into that folder manually, it is Git's work folder.  
 
-Congratulations, you just created your first local Git project. From now on, when you create a file within this folder or update code in an existing code file, Git will (if you let it) track the changes (*stage* the change) and set status checkpoints (*commit* the change).  
+Congratulations, you just created your first local Git project. From now on, when you create a file within this folder or update code in an existing code file, Git will (if you let it) track the changes (*stage* the change) and set status checkpoints (*commit* the change). Moreover, VSCode will now understand that you are connected to Git as a Source Control Provider (which it does not know before you create a Git repo or before you open a source file in an existing Git repo).  
 
-Open VSCode, and type *control k* *control o*, or select 'File/Open Folder...'. A folder selection window will pop up. Navigate to the folder you just created and select this folder. Any file in the folder will now be displayed in the Explorer pane (open this pane by pressing *control shift e*).  
+Type *control k* *control o* in VSCode, or select 'File/Open Folder...'. A folder selection window will pop up. Navigate to the folder you just created and select this folder. Any file in the folder will now be displayed in the Explorer pane (open this pane by pressing *control shift e*).  
 
 To enable VSCode to store project specific settings, it needs to create a *workspace*. By default it will use the current project folder (which you just selected). Select 'File/Save Workspace As...' and save the workspace configuration in the Git repository folder.  
 
