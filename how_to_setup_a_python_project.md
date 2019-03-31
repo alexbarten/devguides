@@ -3,15 +3,15 @@
 ## Contents
 
 1. [Introduction](#Introduction)  
-   * [Setting up Visual Studio Code](#Setting-up-Visual-Studio-Code)  
+1. [Setting up Visual Studio Code](#Setting-up-Visual-Studio-Code)  
    * [Python configuration](#Python-configuration)  
-
-2. [Other nice extensions](#Other-nice-extensions)  
-3. [Create your project environment and create a Git repository](#Create-your-project-environment-and-create-a-Git-repository)  
-4. [Set VSCode as default .gitconfig editor](#Set-VSCode-as-default-.gitconfig-editor)  
-5. [Configure .gitignore](#Configure-.gitignore)  
-6. [Add source files to the local Git repository](#Add-source-files-to-the-local-Git-repository)  
-7. [Sync local Git repository to GitHub for the first time](#Sync-local-Git-repository-to-GitHub-for-the-first-time)  
+   * [Adding a linter](#Adding-a-linter)
+   * [Other nice extensions](#Other-nice-extensions)  
+1. [Create your project environment and create a Git repository](#Create-your-project-environment-and-create-a-Git-repository)  
+1. [Set VSCode as default .gitconfig editor](#Set-VSCode-as-default-.gitconfig-editor)  
+1. [Configure .gitignore](#Configure-.gitignore)  
+1. [Add source files to the local Git repository](#Add-source-files-to-the-local-Git-repository)  
+1. [Sync local Git repository to GitHub for the first time](#Sync-local-Git-repository-to-GitHub-for-the-first-time)  
 
 
 ## Introduction
@@ -66,6 +66,21 @@ After installing the extension, you can start programming right away. To improve
 ```
 
 When you save the file, vertical rulers will pop up when you edit a Python source file.  
+
+
+### Adding a linter  
+
+When you code Python using the official VSCode Python extension, you have the ability to have your code checked at all times by a so called *linter*. A *linter* is a utility that checks if your code is standards-compliant. In the case of Python, the standards are listed in the [Python PEP-rules](https://www.python.org/dev/peps/). PEP means Python Enhancement Proposal. Any enhancement to the language is described here.  
+
+Most languages are supported by one or more linters. Some of these may be part of the language distribution itself, and others are provided by third party developers. Python is supported by a large number of linters. Each one of these has different strengths, and you are advised to study the documentation of each of the linters to choose your favorite, or the linter that supports a particular use case.  
+
+A good multi-purpose linter is Flake8. It applies the [Python PEP8-rules](https://www.python.org/dev/peps/pep-0008/) like most linters do, but this one does it in a better way.  
+
+To set up a linter in VSCode, you press the *control shift p* shortcut to bring up the VSCode command line. Type *python: select linter* and press ENTER to choose from a number of linters known by VSCode (actually: known by the Python extension). Flake8 is amongst the choices. Navigate and select this option and press ENTER again. Probably a window will popup in the downright corner to warn that this Python library has not yet been installed. The window offers buttons to start the installation process. Select the option to start the installation. A Windows command line will show the progress.  
+
+When you have installed the linter, you press *control shift p* and type *python: run linting* to run the linter in your current tab (which should be loaded with a Python source file). If the linter encounters a problem (some code that does not comply to the rules), it will show these in the problem tab of the terminal window in VSCode. When you click on the problem(s) with the left mouse button, the offensive part of your code will be displayed in the editor window.  
+
+By the way: when you save your Python file, your code will be checked automatically. And in the latest versions of VSCode, online real-time checking is also enabled. This means that explicit commands to run a linter are mostly interesting, when you temporarily select an alternative linter (by repeating the command in the previous paragraphs). One of the most interesting alternatives to Flake8 is [Bandit](https://github.com/PyCQA/bandit). Bandit scans your code for security vulnerabilities. After the scan you repeat *python: select linter* once again to switch back to Flake8. Another interesting linter is Pylint. Pylint can give a lot of feedback. It is advised to not use Pylint as your primary linter, but as an extra, because it sometimes is too harsh/strict on your code.  
 
 
 ### Other nice extensions
