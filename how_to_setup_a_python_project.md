@@ -61,6 +61,7 @@ After installing the extension, you can start programming right away. To improve
             72,
             79
         ]
+    }
 }
 ```
 
