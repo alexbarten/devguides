@@ -14,7 +14,7 @@
 1. [Add source files to the local Git repository](#Add-source-files-to-the-local-Git-repository)  
 1. [Sync local Git repository to GitHub for the first time](#Sync-local-Git-repository-to-GitHub-for-the-first-time)  
 1. [Unit testing](#unit-testing)  
-1. [Add support for Behavior Driven Development (BDD)](#Add-support-for-Behavior-Driven-Development-(BDD))
+1. [Add support for Behavior Driven Development (BDD)](#Add-support-for-Behavior-Driven-Development)
 
 ## TODO
 - Explain how to sync between local and remote repos (Git <--> GitHub)    
@@ -249,7 +249,7 @@ The [VSCode manual](https://code.visualstudio.com/docs/python/unit-testing) expl
 
 
 
-## Add support for Behavior Driven Development (BDD)  
+## Add support for Behavior Driven Development  
 
 Pytest is used to create unit tests. A well known test methodology is Test Driven Development (TDD). If you create your tests before you develop your software, then you are essentially using this software development method. Essentially, you develop software by filling in the requirements created by the tests.  
 
