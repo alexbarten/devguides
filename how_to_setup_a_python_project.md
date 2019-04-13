@@ -47,6 +47,8 @@ To enable Python in VSCode, you need to install the official (Microsoft) Python 
 
 Press *control shift X* to open the Extensions pane. Type *python* in the search and filter input field at the top of the pane. A lot of options will pop up. Select the Python extension, authored by Microsoft, and install it. It should be at or near the top of the suggestion list. Alternatively, go to the [official Microsoft Python extension web page](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and install the extension from there.  
 
+![VSCode Python extension](resources/python_extension_in_vscode.png)
+
 Note that you need to have Python (the language) installed on your computer to be able to use the extension. If that is not the case, [download and install the latest version](https://www.python.org/).  
 
 After installing the extension, you can start programming right away. To improve the programming experience, you are invited to configure VSCode to suit your needs. One suggestion is to add vertical rulers on position 72 (for Docstrings) and 79 (for Python code). You can add these by configuring a workspace (= project) specific configuration file, or on a global level. This is how it works:  
