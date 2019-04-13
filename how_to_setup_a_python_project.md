@@ -13,6 +13,7 @@
 1. [Configure .gitignore](#Configure-.gitignore)  
 1. [Add source files to the local Git repository](#Add-source-files-to-the-local-Git-repository)  
 1. [Sync local Git repository to GitHub for the first time](#Sync-local-Git-repository-to-GitHub-for-the-first-time)  
+1. [Unit testing](#unit-testing)  
 
 
 ## Introduction
@@ -80,7 +81,7 @@ Mastering your keyboard eases your life and makes you more productive. With this
 
 To see all your active keyboard shortcuts, press *control k* + *control s*. By the way, the *control k* shortcut gives you access to a lot of combinations. When you press it, a message will pop up in the VSCode status bar.  
 
-A new tab is opened which lists all commands available in VSCode. These commands can be entered manually in the Show All Commands dialogue (the quick command line) that you enter by pressing *control shift p*. You can filter through the list when you start typing in the search line.  
+A new tab is opened which lists all commands available in VSCode. These commands can be entered manually in the Command Palette (= Show All Commands dialogue) that you enter by pressing *control shift p*. You can filter through the list when you start typing in the search line.  
 
 Now you can study which key bindings (= shortcuts) have been assigned to which commands, and you can easily add new ones. Take your time to go through this list every time you wonder if a shortcut (or command) exists. There is no better way to learn to master the VSCode UI.  
 
@@ -100,7 +101,7 @@ Most languages are supported by one or more linters. Some of these may be part o
 
 A good multi-purpose linter is Flake8. It applies the [Python PEP8-rules](https://www.python.org/dev/peps/pep-0008/) like most linters do, but this one does it in a better way.  
 
-To set up a linter in VSCode, you press the *control shift p* shortcut to bring up the VSCode command line. Type *python: select linter* and press ENTER to choose from a number of linters known by VSCode (actually: known by the Python extension). Flake8 is amongst the choices. Navigate and select this option and press ENTER again. Probably a window will popup in the downright corner to warn that this Python library has not yet been installed. The window offers buttons to start the installation process. Select the option to start the installation. A Windows command line will show the progress.  
+To set up a linter in VSCode, you press the *control shift p* shortcut to bring up the VSCode Command Palette. Type *python: select linter* and press ENTER to choose from a number of linters known by VSCode (actually: known by the Python extension). Flake8 is amongst the choices. Navigate and select this option and press ENTER again. Probably a window will popup in the downright corner to warn that this Python library has not yet been installed. The window offers buttons to start the installation process. Select the option to start the installation. A Windows command line will show the progress.  
 
 When you have installed the linter, you press *control shift p* and type *python: run linting* to run the linter in your current tab (which should be loaded with a Python source file). If the linter encounters a problem (some code that does not comply to the rules), it will show these in the problem tab of the terminal window in VSCode. When you click on the problem(s) with the left mouse button, the offensive part of your code will be displayed in the editor window.  
 
@@ -211,3 +212,28 @@ You could work forever with local Git repositories.
 GitHub is a Git server. There are several others, like GitLab and Microsoft TFS/Azure. A Git server has the ability to store multiple Git repositories. You can synchronize your local repository once, if you started locally (as described before), and from then on regard the version on the server as the master.
 
 To move all local source files to a GitHub repo, you need to create a repository in GitHub first.
+
+
+
+## Unit testing  
+
+One of the main advantages of using an IDE, apart from debugging and Git support, over a plain text editor with syntax highlighting, is the ability to integrate with test frameworks. One of the main Python test frameworks is [pytest](https://docs.pytest.org/en/latest/contents.html). Pytest is developed actively, and offers support to execute tests that have been modelled with the Behavior Driven Development test methodology (shorthand: BDD), which will be explained in the next section. In the remainder of this guide it is assumed that you are using pytest.
+
+What does a test framework offer to the developer?  
+
+Imagine that you want to test a program that you just developed. What do you do? Experienced developers write a separate program, which calls the program they want to test. Usually, this test program will have the same name as the program that is to be tested, preceded by 'test_' . Example: 'compute_fibonacci.py' is tested with 'test_compute_fibonacci.py' (or 'compute_fibonacci_test.py'). If you do not have a test framework installed, you need to load the test program, execute it, and look up the results yourself. An installed test framework partially automates these jobs. It will see any test code related to your program and help you execute it, and it will catch the test results. In VSCode, you can click on any test result and then the cursor will be moved to the line that corresponds to the error or warning message.  
+
+How test frameworks interact with your Python software in VSCode [is explained quite well in the VSCode documentation](https://code.visualstudio.com/docs/python/unit-testing). So that is not to be repeated here.  
+
+Some notes (which are also explained in the VSCode documentation).  
+
+To enable a test framework, you have to set an option in the Python settings of VSCode. Open the Settings tab, and filter by entering 'pytest'.  One of the options is 'Python > Unit Test: Py Test Enabled'. Click the checkmark underneath this heading to start using pytest. Alternatively, add this line to settings.json (settings.json is located in the .vscode folder of your project, or you open it by clicking the **{}** icon in the upper right corner of the screen, which is visible if you are in the Settings tab):  
+
+``` json
+"python.unitTest.pyTestEnabled": true,
+```
+
+This code needs to be surrounded with accolades if the settings.json file was empty (and no, the comma does not hurt).  
+
+The [VSCode manual](https://code.visualstudio.com/docs/python/unit-testing) explains in detail how to build test code, and how to execute tests. We will not repeat that here (spoiler: right-click on a test program to run the tests...).  
+
