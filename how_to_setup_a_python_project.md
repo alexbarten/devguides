@@ -14,6 +14,10 @@
 1. [Add source files to the local Git repository](#Add-source-files-to-the-local-Git-repository)  
 1. [Sync local Git repository to GitHub for the first time](#Sync-local-Git-repository-to-GitHub-for-the-first-time)  
 1. [Unit testing](#unit-testing)  
+1. [Add support for Behavior Driven Development (BDD)](#Add-support-for-Behavior-Driven-Development-(BDD))
+
+## TODO
+- Explain how to sync between local and remote repos (Git <--> GitHub)    
 
 
 ## Introduction
@@ -223,6 +227,12 @@ What does a test framework offer to the developer?
 
 Imagine that you want to test a program that you just developed. What do you do? Experienced developers write a separate program, which calls the program they want to test. Usually, this test program will have the same name as the program that is to be tested, preceded by 'test_' . Example: 'compute_fibonacci.py' is tested with 'test_compute_fibonacci.py' (or 'compute_fibonacci_test.py'). If you do not have a test framework installed, you need to load the test program, execute it, and look up the results yourself. An installed test framework partially automates these jobs. It will see any test code related to your program and help you execute it, and it will catch the test results. In VSCode, you can click on any test result and then the cursor will be moved to the line that corresponds to the error or warning message.  
 
+In short, test frameworks offer  
+* a test runner which auto discovers the link between programs and their tests  
+* a mechanism to link from test output to the exact spot in the program where an error or warning was noticed  
+* a plugin structure to add support for additional test libraries, for instance to support BDD, to enhance mocking capabilities, or to test graphical user interfaces  
+* a number of functions that ease the set up, input, output collection, and comparison of input and output data from a given program  
+
 How test frameworks interact with your Python software in VSCode [is explained quite well in the VSCode documentation](https://code.visualstudio.com/docs/python/unit-testing). So that is not to be repeated here.  
 
 Some notes (which are also explained in the VSCode documentation).  
@@ -237,3 +247,30 @@ This code needs to be surrounded with accolades if the settings.json file was em
 
 The [VSCode manual](https://code.visualstudio.com/docs/python/unit-testing) explains in detail how to build test code, and how to execute tests. We will not repeat that here (spoiler: right-click on a test program to run the tests...).  
 
+
+
+## Add support for Behavior Driven Development (BDD)  
+
+Pytest is used to create unit tests. A well known test methodology is Test Driven Development (TDD). If you create your tests before you develop your software, then you are essentially using this software development method. Essentially, you develop software by filling in the requirements created by the tests.  
+
+The TDD software development loop looks like this:  
+
+think of problem to solve (create a feature from an idea) --> create test code --> run test (which fails because no code) --> create code --> re-run test (fails because you made a mistake) --> improve code --> re-run test (succeeds) --> rethink idea --> add or extend feature --> go back to start of loop until your program is complete  
+
+BDD also starts with this idea, but adds more depth to it: it combines the way we define user stories, with the way we talk to the customer (or to the business), with creating the actual program documentation, all at once. To achieve this, you create the specification of the program in a natural language syntax, named Gherkin. When you are done, you translate the Gherkin specification into test code, using a specific library. Gherkin is available for a lot of natural languages. I assume that you will use the English language.  
+
+There are multiple BDD-libraries for Python. *Behave* and *pytest-bdd* are the prime examples. Behave does not integrate with pytest, as it is a standalone library. So we will use pytest-bdd instead. BDD-support for pytest is added easily by installing the pytest-bdd plugin from the command line (open the command line with *control `* from within VSCode) and entering:  
+
+``` script
+pip install pytest-bdd
+```
+
+To learn how to apply Gherkin and how to use pytest-bdd, you are advised to read the [official documentation](https://pytest-bdd.readthedocs.io/en/latest/#). One thing to keep in mind is that VSCode (version 1.33 at the time of writing) does not yet support pytest-bdd out of the box. This means that there is no internal command or menu item to translate Gherkin files automatically into Python test code. This is no big deal, as you can generate test code easily from the in-built command line, by entering the `pytest-bdd` command like so:  
+
+``` script
+pytest-bdd generate features/some.feature > tests/functional/test_some.py
+```
+
+In this case you have generated test code from the Gherkin file with the name some.feature, and you have redirected the console output of the pytest-bdd command to tests/functional/test_some.py .  
+
+This example and others are explained in more detail [in the pytest-bdd documentation](https://pytest-bdd.readthedocs.io/en/latest/#test-code-generation-helpers).  
