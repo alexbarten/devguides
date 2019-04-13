@@ -5,7 +5,8 @@
 1. [Introduction](#Introduction)  
 1. [Setting up Visual Studio Code](#Setting-up-Visual-Studio-Code)  
    * [Python configuration](#Python-configuration)  
-   * [Adding a linter](#Adding-a-linter)
+   * [How to deal with keyboard shortcuts](#How-to-deal-with-keyboard-shortcuts)  
+   * [Adding a linter](#Adding-a-linter)  
    * [Other nice extensions](#Other-nice-extensions)  
 1. [Create your project environment and create a Git repository](#Create-your-project-environment-and-create-a-Git-repository)  
 1. [Set VSCode as default .gitconfig editor](#Set-VSCode-as-default-.gitconfig-editor)  
@@ -68,6 +69,25 @@ After installing the extension, you can start programming right away. To improve
 ```
 
 When you save the file, vertical rulers will pop up when you edit a Python source file.  
+
+
+
+### How to deal with keyboard shortcuts
+
+Mastering your keyboard eases your life and makes you more productive. With this in mind, VSCode has a very flexible and accessible way to deal with keyboard shortcuts.  
+
+To see all your active keyboard shortcuts, press *control k* + *control s*. By the way, the *control k* shortcut gives you access to a lot of combinations. When you press it, a message will pop up in the VSCode status bar.  
+
+A new tab is opened which lists all commands available in VSCode. These commands can be entered manually in the Show All Commands dialogue (the quick command line) that you enter by pressing *control shift p*. You can filter through the list when you start typing in the search line.  
+
+Now you can study which key bindings (= shortcuts) have been assigned to which commands, and you can easily add new ones. Take your time to go through this list every time you wonder if a shortcut (or command) exists. There is no better way to learn to master the VSCode UI.  
+
+As an example, we will add a key binding to toggle the size of the in-built terminal window, as I personally dislike the small window that is presented by default.  
+
+Assuming that you are still in the Keyboard Shortcuts tab, start filtering for the command we want to assign a key binding to, by entering 'max' (without quotes). VSCode will present all commands that have this string somewhere in the command. One of the commands is *View: Toggle Maximized Panel*. Double click on the command with the mouse. A modal dialogue pops up and you can now press the desired shortcut to toggle the size of the in-built terminal. I assigned *control shift alt m*. If your shortcut already was assigned to a different command, VSCode will tell you and also show a link to that command. Then it is up to you if you still want to assign the shortcut. When you press *enter*, the shortcut is assigned and the filtered command list will show this.  
+
+The shortcut will be added to your user settings, in the file 'keybindings.json'. You can easily open and view this settings file when you are in the Keyboard Shortcuts tab, by pressing the **{}** button in the upper right corner of the screen. If you did everything by the book, your newly assigned command to toggle the terminal window size will be listed there (amongst other, if you already played with assigning shortcuts before). Alternatively, you can enter new shortcuts directly in 'keybindings.json', although you will miss the interaction presented in the Keyboard Shortcuts tab.  
+
 
 
 ### Adding a linter  
