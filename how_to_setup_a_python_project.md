@@ -244,7 +244,7 @@ You now have created a spot on the server to synchronize your local source files
 git remote add origin https://github.com/user/repo.git
 ```
 
-This command connects the remote repository that you just created (provided that your user name in GitHub is 'user' and the repository you created is named 'repo') to your local repository. You have to this once for each repository to create a 1:1 link between local and remote versions. The default working name of the remote repo is 'origin'. For now it is advised to stick to that name.  
+This command connects the remote repository that you just created (provided that your user name in GitHub is 'user' and the repository you created is named 'repo') to your local repository. You have to execute this once for each repository to create a 1:1 link between local and remote versions. The default working name of the remote repo is 'origin'. For now it is advised to stick to that name.  
 
 Now that you have connected the repositories, it is time to synchronize the local files to the remote repo. Git uses the 'push' argument to do that:  
 
