@@ -12,12 +12,14 @@
 1. [Set VSCode as default .gitconfig editor](#Set-VSCode-as-default-.gitconfig-editor)  
 1. [Configure .gitignore](#Configure-.gitignore)  
 1. [Add source files to the local Git repository](#Add-source-files-to-the-local-Git-repository)  
+1. [The move from local Git repos to a Git server](#The-move-from-local-Git-repos-to-a-Git-server)
 1. [Sync local Git repository to GitHub for the first time](#Sync-local-Git-repository-to-GitHub-for-the-first-time)  
 1. [Unit testing](#unit-testing)  
 1. [Add support for Behavior Driven Development (BDD)](#Add-support-for-Behavior-Driven-Development)
 
 ## TODO
 - Explain how to sync between local and remote repos (Git <--> GitHub)    
+- Explanation on code quality  
 
 
 ## Introduction
@@ -209,9 +211,22 @@ To add the new file to Git's version tracking, you must select the file in the S
 After some time you want to make the staged changes irreversible. You do this by committing the change. At the top of the Source Control panel you type a text in the text box to summarize the change in one line. Then you press *control alt enter*. The changed file (or files if you changed more than one) will now be saved into Git as the new base version, but only all changes that have been staged before.   
 
 
-## Sync local Git repository to GitHub for the first time  
 
-You could work forever with local Git repositories. 
+## The move from local Git repos to a Git server  
+
+You could work forever with local Git repositories. As explained in the last sections, when all you are going to do is developing software on your own, then a local Git installation suffices.  
+
+However, there are multiple reasons to not only use a local Git installation, but expand your code base to a Git server on the internet (or intranet).  
+
+1. You can access the code from any computer, when the main code base is stored on a server, because a Git server allows you to fetch and synchronize the code at any time, even when you developed locally for some time and did not synchronize changes for a while. So when you have a desktop computer and a laptop, a Git server saves you manual synchronizations (and the thinking that comes with it).    
+1. You can treat the server copy (although it is the master copy) as a backup of your code base. This makes sense, especially if you work alone.  
+1. Git forces you to think and construct your code base in a reasonable way. You do not just commit code, but you do it when it makes sense. When you add a Git server to your workflow, this applies even more. You have to think about when to publish (push) your locally committed code to the central code base, because of...
+1. *co-developers*. When you use a Git server, you usually do this to not only share the code between your computers, but to code your solutions with other developers. In other words, to cooperate and coordinate your work with others. This means you have to negotiate or discuss who creates what part of the code base, and it makes sense to not always keep all the code in one code base, but to create parallel code bases that sometimes are merged into the main code base. More on that later, because Git offers a lot of possibilities here.  
+1. Moreover, you actually might want to publish your code to the world. In this case you have *real* users in mind, who download and actually apply your solutions to their own real-world scenarios. This can't be done well without a Git server, unless you only plan to distribute binaries. But that is not how modern development looks like. Code is nowadays open, and we welcome additions, questions and remarks about the code and about the solution. All Git servers offer a workflow, both to users and to you, to deal with that communication, and how that affects the code (and vice versa) and release version control.  
+
+
+
+## Sync local Git repository to GitHub for the first time  
 
 GitHub is a Git server. There are several others, like GitLab and Microsoft TFS/Azure. A Git server has the ability to store multiple Git repositories. You can synchronize your local repository once, if you started locally (as described before), and from then on regard the version on the server as the master.
 
