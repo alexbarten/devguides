@@ -206,9 +206,11 @@ As stated before in section [Create your project environment and create a Git re
 
 When you add code (or text) to the new file, and save it while progressing (by pressing *control s*), you will notice that the file is tagged with a 'U' sitting behind it, meaning that it is *untracked*.  
 
-To add the new file to Git's version tracking, you must select the file in the Source Control pane, and when you hover over its filename with the mouse in the Source Control pane, a few icons will be displayed. Click the plus (+) icon. The file is now added to the local Git project: its changes have been staged (this is Git-speak for preparing a checkpoint).  
+To add the new file to Git's version tracking, you must select the file in the Source Control pane, and when you hover over its filename with the mouse in the Source Control pane, a few icons will be displayed. Click the plus (+) icon. The file is now added to the local Git project: its changes have been staged (this is Git-speak for preparing a checkpoint). Alternatively, you can open the Command Palette (*control shift p*) and enter *git stage all changes*.  
 
-After some time you want to make the staged changes irreversible. You do this by committing the change. At the top of the Source Control panel you type a text in the text box to summarize the change in one line. Then you press *control alt enter*. The changed file (or files if you changed more than one) will now be saved into Git as the new base version, but only all changes that have been staged before.   
+After some time you want to make the staged changes irreversible. You do this by committing the change. At the top of the Source Control panel you type a text in the text box to summarize the change in one line. Then you press *control alt enter*. The changed file (or files if you changed more than one) will now be saved into Git as the new base version, but only all changes that have been staged before. To execute the same command usinhg the Command Palette, you enter *git commit*.  
+
+In all cases, you can easily open the in-built command line and enter the Git commands you need directly. It is just a matter of preference, and VSCode gives you a lot of alternatives to construct a workflow that you like most.  
 
 
 
@@ -228,9 +230,33 @@ However, there are multiple reasons to not only use a local Git installation, bu
 
 ## Sync local Git repository to GitHub for the first time  
 
-GitHub is a Git server. There are several others, like GitLab and Microsoft TFS/Azure. A Git server has the ability to store multiple Git repositories. You can synchronize your local repository once, if you started locally (as described before), and from then on regard the version on the server as the master.
+In the previous section a number of advantages of using a Git server have been listed. In this section we discuss how to actually do this.  
 
-To move all local source files to a GitHub repo, you need to create a repository in GitHub first.
+GitHub is a Git server. I assume that you will use GitHub, but it does not really matter as all Git servers act the same, because the support the universally accepted Git instruction set. There are several others, like GitLab, Microsoft TFS/Azure and Atlassian Bitbucket. A Git server has the ability to store multiple Git repositories, as soon as you have created a free user account (which I assume you have done are doing right now). You can synchronize your local repository once, if you started locally (as described before), and from then on regard the version on the server as the master.  
+
+To move all local source files of a given Git repository to a GitHub repo, you need to create a new repository in GitHub. You do this by clicking the '+' (plus) button in the upper right corner of the GitHub screen. Select the *New Repository* option to open a screen that allows you to enter the name of your repository (I usually choose the same name as my local repository, if that one already exists). And you can set some additional properties, like the visibility of the repository. You can change these properties at a later time if you want.  
+
+![Create a GitHub repository](resources/create_github_repo.png)  
+
+You now have created a spot on the server to synchronize your local source files to. The next step is to connect (or link) your *local* Git repository to the *remote* repository. When we say *remote*, we always refer to the Git server version of the Git repository. Enter this command in the in-built command line (opened by pressing *control `*) from within the folder path of your current Git repository:  
+
+``` shell
+git remote add origin https://github.com/user/repo.git
+```
+
+This command connects the remote repository that you just created (provided that your user name in GitHub is 'user' and the repository you created is named 'repo') to your local repository. You have to this once for each repository to create a 1:1 link between local and remote versions. The default working name of the remote repo is 'origin'. For now it is advised to stick to that name.  
+
+Now that you have connected the repositories, it is time to synchronize the local files to the remote repo. Git uses the 'push' argument to do that:  
+
+``` shell
+git push -u origin master
+```
+
+All files in the local repo, provided that these have been *staged* and *committed* successfully, will now be pushed to the Git server. To be exact: all changes (new files in our case, as all files are unknown to the server) will be pushed to the *origin* remote repo, and within that repo to the *master* branch. More on branches in a later section.  
+
+If you now head to the GitHub website, and login to your account, you will see all files from the local repo in your server repo. Mission accomplished.  
+
+From now on you can *stage* any new files (adding these to your local repo), *commit* all changes (both new files and changes to existing files are recorded forever in the local repo), and *push* the locally recorded changes to the server.  
 
 
 
@@ -276,13 +302,13 @@ BDD also starts with this idea, but adds more depth to it: it combines the way w
 
 There are multiple BDD-libraries for Python. *Behave* and *pytest-bdd* are the prime examples. Behave does not integrate with pytest, as it is a standalone library. So we will use pytest-bdd instead. BDD-support for pytest is added easily by installing the pytest-bdd plugin from the command line (open the command line with *control `* from within VSCode) and entering:  
 
-``` script
+``` shell
 pip install pytest-bdd
 ```
 
 To learn how to apply Gherkin and how to use pytest-bdd, you are advised to read the [official documentation](https://pytest-bdd.readthedocs.io/en/latest/#). One thing to keep in mind is that VSCode (version 1.33 at the time of writing) does not yet support pytest-bdd out of the box. This means that there is no internal command or menu item to translate Gherkin files automatically into Python test code. This is no big deal, as you can generate test code easily from the in-built command line, by entering the `pytest-bdd` command like so:  
 
-``` script
+``` shell
 pytest-bdd generate features/some.feature > tests/functional/test_some.py
 ```
 
