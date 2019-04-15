@@ -18,7 +18,8 @@
 1. [Add support for Behavior Driven Development (BDD)](#Add-support-for-Behavior-Driven-Development)
 
 ## TODO
-- Explain how to sync between local and remote repos (Git <--> GitHub)    
+- Explain how to sync between local and remote repos (Git <--> GitHub) (how to integrate remote changes with local ones)  
+- Create sub sections for Git and Testing.  
 - Explanation on code quality  
 
 
