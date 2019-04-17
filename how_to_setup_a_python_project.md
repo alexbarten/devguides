@@ -208,7 +208,7 @@ When you add code (or text) to the new file, and save it while progressing (by p
 
 To add the new file to Git's version tracking, you must select the file in the Source Control pane, and when you hover over its filename with the mouse in the Source Control pane, a few icons will be displayed. Click the plus (+) icon. The file is now added to the local Git project: its changes have been staged (this is Git-speak for preparing a checkpoint). Alternatively, you can open the Command Palette (*control shift p*) and enter *git stage all changes*.  
 
-After some time you want to make the staged changes irreversible. You do this by committing the change. At the top of the Source Control panel you type a text in the text box to summarize the change in one line. Then you press *control alt enter*. The changed file (or files if you changed more than one) will now be saved into Git as the new base version, but only all changes that have been staged before. To execute the same command usinhg the Command Palette, you enter *git commit*.  
+After some time you want to make the staged changes irreversible. You do this by committing the change. At the top of the Source Control panel you type a text in the text box to summarize the change in one line. Then you press *control alt enter*. The changed file (or files if you changed more than one) will now be saved into Git as the new base version, but only all changes that have been staged before. To execute the same command using the Command Palette, you enter *git commit*.  
 
 In all cases, you can easily open the in-built command line and enter the Git commands you need directly. It is just a matter of preference, and VSCode gives you a lot of alternatives to construct a workflow that you like most.  
 
