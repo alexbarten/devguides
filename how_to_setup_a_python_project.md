@@ -119,12 +119,18 @@ By the way: when you save your Python file, your code will be checked automatica
 
 Python is the only extension needed to start coding. But you can improve your workflow significantly by installing additional extensions. For example:  
 
-* File Utils (Steffen Leistner) - Add lots of file operations  
-* Git History (Don Jayamanne)   - Compare several versions of the same source  
-* gitignore (CodeZombie)        - Language support of .gitignore files  
-* List Files (Don Jayamanne)    - List and open files quicker  
-* Spell Right (Bartosz Antosik) - Interactive spell checker  
-
+* Cucumber (Gherkin) Full Support (Alexander Krechik) - Gherkin .feature language support  
+* File Utils (Steffen Leistner)  - Add lots of file operations  
+* Git History (Don Jayamanne)    - Compare several versions of the same source  
+* gitignore (CodeZombie)         - Language support of .gitignore files  
+* List Files (Don Jayamanne)     - List and open files quicker  
+* markdownlint (David Enson)     - Linter for Markdown files, which enforces compatibility between several parsers  
+* Paste JSON as code (quicktype) - change selected JSON in any language variable assignment, and vice versa  
+* PlantUML (jebbs)               - PlantUML syntax checker + integrated viewer  
+* Rust (rls) (rust-lang)         - Rust language support  
+* Spell Right (Bartosz Antosik)  - Interactive spell checker  
+* XML to JSON (Bui Anh Thang)    - Convert XML to JSON on the fly  
+* XML Tools (Josh Johnson)       - XML formatting, tree view, XPath evaluation, SQuery support  
 
 
 ## Create your project environment and create a Git repository  
