@@ -18,10 +18,10 @@
 1. [Add support for Behavior Driven Development (BDD)](#Add-support-for-Behavior-Driven-Development)
 
 ## TODO
-- Explain how to sync between local and remote repos (Git <--> GitHub) (how to integrate remote changes with local ones)  
-- Create sub sections for Git and Testing.  
-- Explanation on code quality  
 
+* Explain how to sync between local and remote repos (Git <--> GitHub) (how to integrate remote changes with local ones)  
+* Create sub sections for Git and Testing.  
+* Explanation on code quality  
 
 ## Introduction
 
@@ -37,7 +37,6 @@ In this document I assume that you will use Visual Studio Code as your code edit
 
 ---
 
-
 ## Setting up Visual Studio Code
 
 Microsoft Visual Studio Code (VSCode) is a free and lean code editor, that supports web programming languages (HTML, (S)CSS, JavaScript, TypeScript) and a number of web frameworks out of the box.  
@@ -47,7 +46,6 @@ It is actively maintained for Windows, Linux and MacOS.
 VSCode is very popular, and thousands of extensions have been created to add functionality. This is the architecture of VSCode - it provides very flexible extension APIs, which can use and integrate with nearly any functionality of the editor.  
 
 As a user, you are expected to extend the editor until it fits your needs. That is what we will do in this section.  
-
 
 ### Python configuration
 
@@ -80,8 +78,6 @@ After installing the extension, you can start programming right away. To improve
 
 When you save the file, vertical rulers will pop up when you edit a Python source file.  
 
-
-
 ### How to deal with keyboard shortcuts
 
 Mastering your keyboard eases your life and makes you more productive. With this in mind, VSCode has a very flexible and accessible way to deal with keyboard shortcuts.  
@@ -98,8 +94,6 @@ Assuming that you are still in the Keyboard Shortcuts tab, start filtering for t
 
 The shortcut will be added to your user settings, in the file 'keybindings.json'. You can easily open and view this settings file when you are in the Keyboard Shortcuts tab, by pressing the **{}** button in the upper right corner of the screen. If you did everything by the book, your newly assigned command to toggle the terminal window size will be listed there (amongst other, if you already played with assigning shortcuts before). Alternatively, you can enter new shortcuts directly in 'keybindings.json', although you will miss the interaction presented in the Keyboard Shortcuts tab.  
 
-
-
 ### Adding a linter  
 
 When you code Python using the official VSCode Python extension, you have the ability to have your code checked at all times by a so called *linter*. A *linter* is a utility that checks if your code is standards-compliant. In the case of Python, the standards are listed in the [Python PEP-rules](https://www.python.org/dev/peps/). PEP means Python Enhancement Proposal. Any enhancement to the language is described here.  
@@ -114,35 +108,38 @@ When you have installed the linter, you press *control shift p* and type *python
 
 By the way: when you save your Python file, your code will be checked automatically. And in the latest versions of VSCode, online real-time checking is also enabled. This means that explicit commands to run a linter are mostly interesting, when you temporarily select an alternative linter (by repeating the command in the previous paragraphs). One of the most interesting alternatives to Flake8 is [Bandit](https://github.com/PyCQA/bandit). Bandit scans your code for security vulnerabilities. After the scan you repeat *python: select linter* once again to switch back to Flake8. Another interesting linter is Pylint. Pylint can give a lot of feedback. It is advised to not use Pylint as your primary linter, but as an extra, because it sometimes is too harsh/strict on your code.  
 
-
 ### Other nice extensions
 
 Python is the only extension needed to start coding. But you can improve your workflow significantly by installing additional extensions. For example:  
 
+* AutoHotkey (slevesque)         - AutoHotkey support (to automate Windows actions)
 * Cucumber (Gherkin) Full Support (Alexander Krechik) - Gherkin .feature language support  
 * File Utils (Steffen Leistner)  - Add lots of file operations  
 * Git History (Don Jayamanne)    - Compare several versions of the same source  
+* GitHub Pull Requests (GitHub)  - Pull request provider (edit them from VSCode)
 * gitignore (CodeZombie)         - Language support of .gitignore files  
 * List Files (Don Jayamanne)     - List and open files quicker  
-* markdownlint (David Enson)     - Linter for Markdown files, which enforces compatibility between several parsers  
-* Paste JSON as code (quicktype) - change selected JSON in any language variable assignment, and vice versa  
+* markdownlint (David Anson)     - Linter for Markdown files, which enforces compatibility between several parsers  
+* Paste JSON as code (quicktype) - Change selected JSON in any language variable assignment, and vice versa  
 * PlantUML (jebbs)               - PlantUML syntax checker + integrated viewer  
+* Remote - WSL (Microsoft)       - Connect VSCode (windows) to your WSL Linux installation and use that as your dev environment
 * Rust (rls) (rust-lang)         - Rust language support  
+* Simple icons (Laurent Tréguier)- Clear, colorful and professional looking icon set
 * Spell Right (Bartosz Antosik)  - Interactive spell checker  
 * XML to JSON (Bui Anh Thang)    - Convert XML to JSON on the fly  
 * XML Tools (Josh Johnson)       - XML formatting, tree view, XPath evaluation, SQuery support  
 
-
 ## Create your project environment and create a Git repository  
 
 Why would you create a Git repository? Git does several things for you.  
-1. It adds discipline. You create or change code, you stage the changes, you commit the changes and think about the consequences while you do it. 
+
+1. It adds discipline. You create or change code, you stage the changes, you commit the changes and think about the consequences while you do it.
 1. It creates an unbreakable trail of changes. You can see through the history of your developed solutions, and fall back to an older state, or analyze when you introduced an error.
 1. As you add files to the repository, you think about its size, about its functionality and about the current state of things. What to release? What to postpone? Because you add these formal steps of committing changes, you are more aware of each step you take.  
 
 So, how to create a Git repository?
-1. Create a folder by using the VSCode terminal (open with 
-*control shift `*)  
+
+1. Create a folder by using the VSCode terminal (open with *control shift `*)  
 1. Navigate into the folder from the terminal  
 1. Type (replace <...> with your project name):  
 
@@ -158,22 +155,25 @@ Type *control k* *control o* in VSCode, or select 'File/Open Folder...'. A folde
 
 To enable VSCode to store project specific settings, it needs to create a *workspace*. By default it will use the current project folder (which you just selected). Select 'File/Save Workspace As...' and save the workspace configuration in the Git repository folder.  
 
-
-
 ## Set VSCode as default .gitconfig editor  
 
 Open a VSCode (or other) terminal and type  
+
 ``` shell  
 git config --global core.editor "code --wait"  
 ```  
+
 Now the .gitconfig file has been changed, and it will point to VSCode as the default .gitconfig editor.  
 
 To check if this is working as expected, type:  
+
 ``` shell  
 git config --global -e  
 ```  
+
 The .gitconfig file will be loaded in a new tab in VSCode.  
 Now we add these lines to .gitconfig:  
+
 ``` shell
 [diff]
     tool = default-difftool
@@ -182,13 +182,13 @@ Now we add these lines to .gitconfig:
 ```
 
 Now, when you type:
+
 ``` shell
 git difftool
 ```
+
 ...in the command line, Git will ask if you want to compare versions of a particular changed file. Answering Yes or No, you will traverse through the list of changed files in the current repository. If you answer Yes, VSCode will be started and the current version will be shown next to the last committed version.  
 Alternatively, you can right click on the file name in the *Source Control* pane of VSCode and select the *Open Changes* context menu choice. This will have the same effect.  
-
-
 
 ## Configure .gitignore  
 
@@ -205,8 +205,6 @@ settings.json
 * settings.json contains project specific settings in VSCode.  
 * the .code-workspace file is the workspace configuration in VSCode.  
 
-
-
 ## Add source files to the local Git repository
 
 As stated before in section [Create your project environment and create a Git repository](#Create-your-project-environment-and-create-a-Git-repository): when you create a new file in VSCode within the active workspace, the file will be visible in the Explorer pane on the left side of the screen. As you might remember, you open this pane by pressing *control shift e*. Note that any ignored file (filtered by the rules in the .gitignore file) will be displayed in a slightly washed out grey color, to show that it is not controlled by Git.  
@@ -219,21 +217,17 @@ After some time you want to make the staged changes irreversible. You do this by
 
 In all cases, you can easily open the in-built command line and enter the Git commands you need directly. It is just a matter of preference, and VSCode gives you a lot of alternatives to construct a workflow that you like most.  
 
-
-
 ## The move from local Git repos to a Git server  
 
 You could work forever with local Git repositories. As explained in the last sections, when all you are going to do is developing software on your own, then a local Git installation suffices.  
 
 However, there are multiple reasons to not only use a local Git installation, but expand your code base to a Git server on the internet (or intranet).  
 
-1. You can access the code from any computer, when the main code base is stored on a server, because a Git server allows you to fetch and synchronize the code at any time, even when you developed locally for some time and did not synchronize changes for a while. So when you have a desktop computer and a laptop, a Git server saves you manual synchronizations (and the thinking that comes with it).    
+1. You can access the code from any computer, when the main code base is stored on a server, because a Git server allows you to fetch and synchronize the code at any time, even when you developed locally for some time and did not synchronize changes for a while. So when you have a desktop computer and a laptop, a Git server saves you manual synchronizations (and the thinking that comes with it).
 1. You can treat the server copy (although it is the master copy) as a backup of your code base. This makes sense, especially if you work alone.  
 1. Git forces you to think and construct your code base in a reasonable way. You do not just commit code, but you do it when it makes sense. When you add a Git server to your workflow, this applies even more. You have to think about when to publish (push) your locally committed code to the central code base, because of...
 1. *co-developers*. When you use a Git server, you usually do this to not only share the code between your computers, but to code your solutions with other developers. In other words, to cooperate and coordinate your work with others. This means you have to negotiate or discuss who creates what part of the code base, and it makes sense to not always keep all the code in one code base, but to create parallel code bases that sometimes are merged into the main code base. More on that later, because Git offers a lot of possibilities here.  
 1. Moreover, you actually might want to publish your code to the world. In this case you have *real* users in mind, who download and actually apply your solutions to their own real-world scenarios. This can't be done well without a Git server, unless you only plan to distribute binaries. But that is not how modern development looks like. Code is nowadays open, and we welcome additions, questions and remarks about the code and about the solution. All Git servers offer a workflow, both to users and to you, to deal with that communication, and how that affects the code (and vice versa) and release version control.  
-
-
 
 ## Sync local Git repository to GitHub for the first time  
 
@@ -265,8 +259,6 @@ If you now head to the GitHub website, and login to your account, you will see a
 
 From now on you can *stage* any new files (adding these to your local repo), *commit* all changes (both new files and changes to existing files are recorded forever in the local repo), and *push* the locally recorded changes to the server.  
 
-
-
 ## Unit testing  
 
 One of the main advantages of using an IDE, apart from debugging and Git support, over a plain text editor with syntax highlighting, is the ability to integrate with test frameworks. One of the main Python test frameworks is [pytest](https://docs.pytest.org/en/latest/contents.html). Pytest is developed actively, and offers support to execute tests that have been modelled with the Behavior Driven Development test methodology (shorthand: BDD), which will be explained in the next section. In the remainder of this guide it is assumed that you are using pytest.
@@ -276,6 +268,7 @@ What does a test framework offer to the developer?
 Imagine that you want to test a program that you just developed. What do you do? Experienced developers write a separate program, which calls the program they want to test. Usually, this test program will have the same name as the program that is to be tested, preceded by 'test_' . Example: 'compute_fibonacci.py' is tested with 'test_compute_fibonacci.py' (or 'compute_fibonacci_test.py'). If you do not have a test framework installed, you need to load the test program, execute it, and look up the results yourself. An installed test framework partially automates these jobs. It will see any test code related to your program and help you execute it, and it will catch the test results. In VSCode, you can click on any test result and then the cursor will be moved to the line that corresponds to the error or warning message.  
 
 In short, test frameworks offer  
+
 * a test runner which auto discovers the link between programs and their tests  
 * a mechanism to link from test output to the exact spot in the program where an error or warning was noticed  
 * a plugin structure to add support for additional test libraries, for instance to support BDD, to enhance mocking capabilities, or to test graphical user interfaces  
@@ -295,11 +288,9 @@ This code needs to be surrounded with accolades if the settings.json file was em
 
 The [VSCode manual](https://code.visualstudio.com/docs/python/unit-testing) explains in detail how to build test code, and how to execute tests. We will not repeat that here (spoiler: right-click on a test program to run the tests...).  
 
-
-
 ## Add support for Behavior Driven Development  
 
-Pytest is used to create unit tests. A well known test methodology is Test Driven Development (TDD). If you create your tests before you develop your software, then you are essentially using this software development method. Essentially, you develop software by filling in the requirements created by the tests.  
+Pytest is used to create unit tests. A well known test methodology is Test Driven Development (TDD). If you create your tests before you develop your software, then you are essentially using this software development method. Essentially, you develop software by filling in the requirements created by the tests.
 
 The TDD software development loop looks like this:  
 
