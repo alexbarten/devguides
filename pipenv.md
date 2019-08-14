@@ -28,7 +28,9 @@ Just like Pip, it installs modules. Unlike Pip, it has advanced dependency manag
 
 Next to this, it will by default create project-specific module installations. Pip does not do this, and you would need to use Pip and Venv together to replicate this behaviour.  
 
-When you are done developing your project, you can freeze the module versions that you used, send the frozen module versions list to the environment where you want to deploy your project, run Pipenv over there and rest assured that the correct versions will be installed over there. As the frozen versions list is created independently from the installed versions in your development environment, you can keep updating versions over there, and send the latest 'frozen' list with each deployment. This way of working supports continuous deployment perfectly, and is easy to automate.
+When you are done developing your project, you can freeze the module versions that you used, send the frozen module versions list to the environment where you want to deploy your project, run Pipenv over there and rest assured that the correct versions will be installed over there. As the frozen versions list is created independently from the installed versions in your development environment, you can keep updating versions over there, and send the latest 'frozen' list with each deployment. This way of working supports continuous deployment perfectly, and is easy to automate.  
+
+Pipenv is promoted by the Python organization for these tasks, as a replacement for Pip and Venv.  
 
 
 ## Install Pipenv
