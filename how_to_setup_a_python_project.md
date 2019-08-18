@@ -5,6 +5,7 @@
 1. [Introduction](#Introduction)  
 1. [Setting up Visual Studio Code](#Setting-up-Visual-Studio-Code)  
    * [Python configuration](#Python-configuration)  
+   * [Markdown configuration](#Markdown-configuration)
    * [How to deal with keyboard shortcuts](#How-to-deal-with-keyboard-shortcuts)  
    * [Adding a linter](#Adding-a-linter)  
    * [Other nice extensions](#Other-nice-extensions)  
@@ -91,6 +92,7 @@ I configure Markdown slightly differently:
         "editor.wordWrap": "wordWrapColumn"
     },
 }
+```
 
 This will activate word wrapping for Markdown files, with a width of 100 characters.
 
