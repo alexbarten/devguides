@@ -61,7 +61,7 @@ Note that you need to have Python (the language) installed on your computer to b
 After installing the extension, you can start programming right away. To improve the programming experience, you are invited to configure VSCode to suit your needs. One suggestion is to add vertical rulers on position 72 (for Docstrings) and 79 (for Python code). You can add these by configuring a workspace (= project) specific configuration file, or on a global level. This is how it works:  
 
 * Open Settings (*control ,*)  
-* Click on the accolade **{ }** icon in the top right of the VSCode window.  
+* Click on the *open settings* <img src="resources/open_settings_icon.png" alt="open settings icon" width="20"/> icon in the top right of the VSCode window.  
 * *settings.json* is opened in a tab. This is your local configuration file.  
 * Add this code to settings.json:  
 
@@ -110,7 +110,7 @@ As an example, we will add a key binding to toggle the size of the in-built term
 
 Assuming that you are still in the Keyboard Shortcuts tab, start filtering for the command we want to assign a key binding to, by entering 'max' (without quotes). VSCode will present all commands that have this string somewhere in the command. One of the commands is *View: Toggle Maximized Panel*. Double click on the command with the mouse. A modal dialogue pops up and you can now press the desired shortcut to toggle the size of the in-built terminal. I assigned *control shift alt m*. If your shortcut already was assigned to a different command, VSCode will tell you and also show a link to that command. Then it is up to you if you still want to assign the shortcut. When you press *enter*, the shortcut is assigned and the filtered command list will show this.  
 
-The shortcut will be added to your user settings, in the file 'keybindings.json'. You can easily open and view this settings file when you are in the Keyboard Shortcuts tab, by pressing the **{}** button in the upper right corner of the screen. If you did everything by the book, your newly assigned command to toggle the terminal window size will be listed there (amongst other, if you already played with assigning shortcuts before). Alternatively, you can enter new shortcuts directly in 'keybindings.json', although you will miss the interaction presented in the Keyboard Shortcuts tab.  
+The shortcut will be added to your user settings, in the file 'keybindings.json'. You can easily open and view this settings file when you are in the Keyboard Shortcuts tab, by pressing the *open settings* <img src="resources/open_settings_icon.png" alt="open settings icon" width="20"/> icon in the upper right corner of the screen. If you did everything by the book, your newly assigned command to toggle the terminal window size will be listed there (amongst other, if you already played with assigning shortcuts before). Alternatively, you can enter new shortcuts directly in 'keybindings.json', although you will miss the interaction presented in the Keyboard Shortcuts tab.  
 
 ### Adding a linter  
 
@@ -299,7 +299,7 @@ How test frameworks interact with your Python software in VSCode [is explained q
 
 Some notes (which are also explained in the VSCode documentation).  
 
-To enable a test framework, you have to set an option in the Python settings of VSCode. Open the Settings tab, and filter by entering 'pytest'.  One of the options is 'Python > Unit Test: Py Test Enabled'. Click the checkmark underneath this heading to start using pytest. Alternatively, add this line to settings.json (settings.json is located in the .vscode folder of your project, or you open it by clicking the **{}** icon in the upper right corner of the screen, which is visible if you are in the Settings tab):  
+To enable a test framework, you have to set an option in the Python settings of VSCode. Open the Settings tab, and filter by entering 'pytest'.  One of the options is 'Python > Unit Test: Py Test Enabled'. Click the checkmark underneath this heading to start using pytest. Alternatively, add this line to settings.json (settings.json is located in the .vscode folder of your project, or you open it by clicking the *open settings* <img src="resources/open_settings_icon.png" alt="open settings icon" width="20"/> icon in the upper right corner of the screen, which is visible if you are in the Settings tab):  
 
 ``` json
 "python.unitTest.pyTestEnabled": true,
