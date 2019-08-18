@@ -78,6 +78,22 @@ After installing the extension, you can start programming right away. To improve
 
 When you save the file, vertical rulers will pop up when you edit a Python source file.  
 
+### Markdown configuration
+
+Markdown files are added to Python projects as the format of choice for readme files (readme.md) and other documentation.
+
+I configure Markdown slightly differently:
+
+``` json
+{
+    "[markdown]": {
+        "editor.wordWrapColumn": 100,
+        "editor.wordWrap": "wordWrapColumn"
+    },
+}
+
+This will activate word wrapping for Markdown files, with a width of 100 characters.
+
 ### How to deal with keyboard shortcuts
 
 Mastering your keyboard eases your life and makes you more productive. With this in mind, VSCode has a very flexible and accessible way to deal with keyboard shortcuts.  
