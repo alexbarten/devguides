@@ -140,6 +140,7 @@ GitHub Pull Requests (GitHub)  | Pull request provider (edit them from VSCode)
 gitignore (CodeZombie)         | Language support of .gitignore files  
 List Files (Don Jayamanne)     | List and open files quicker  
 markdownlint (David Anson)     | Linter for Markdown files, which enforces compatibility between several parsers  
+Open in GitHub (Fabio Spampinato) | Open the project or the current file in GitHub in your browser
 Paste JSON as code (quicktype) | Change selected JSON in any language variable assignment, and vice versa  
 PlantUML (jebbs)               | PlantUML syntax checker + integrated viewer  
 Remote - WSL (Microsoft)       | Connect VSCode (windows) to your WSL Linux installation and use that as your dev environment
