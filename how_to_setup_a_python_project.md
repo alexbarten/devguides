@@ -1,22 +1,26 @@
 # How to setup a Python programming project  
 
-## Contents
+<!-- TOC -->
 
-1. [Introduction](#Introduction)  
-1. [Setting up Visual Studio Code](#Setting-up-Visual-Studio-Code)  
-   * [Python configuration](#Python-configuration)  
-   * [Markdown configuration](#Markdown-configuration)
-   * [How to deal with keyboard shortcuts](#How-to-deal-with-keyboard-shortcuts)  
-   * [Adding a linter](#Adding-a-linter)  
-   * [Other nice extensions](#Other-nice-extensions)  
-1. [Create your project environment and create a Git repository](#Create-your-project-environment-and-create-a-Git-repository)  
-1. [Set VSCode as default .gitconfig editor](#Set-VSCode-as-default-.gitconfig-editor)  
-1. [Configure .gitignore](#Configure-.gitignore)  
-1. [Add source files to the local Git repository](#Add-source-files-to-the-local-Git-repository)  
-1. [The move from local Git repos to a Git server](#The-move-from-local-Git-repos-to-a-Git-server)
-1. [Sync local Git repository to GitHub for the first time](#Sync-local-Git-repository-to-GitHub-for-the-first-time)  
-1. [Unit testing](#unit-testing)  
-1. [Add support for Behavior Driven Development (BDD)](#Add-support-for-Behavior-Driven-Development)
+- [TODO](#todo)
+- [Introduction](#introduction)
+- [Setting up Visual Studio Code](#setting-up-visual-studio-code)
+    - [Python configuration](#python-configuration)
+    - [Markdown configuration](#markdown-configuration)
+    - [How to deal with keyboard shortcuts](#how-to-deal-with-keyboard-shortcuts)
+        - [The Insert key](#the-insert-key)
+    - [Adding a linter](#adding-a-linter)
+    - [Other nice extensions](#other-nice-extensions)
+- [Create your project environment and create a Git repository](#create-your-project-environment-and-create-a-git-repository)
+- [Set VSCode as default .gitconfig editor](#set-vscode-as-default-gitconfig-editor)
+- [Configure .gitignore](#configure-gitignore)
+- [Add source files to the local Git repository](#add-source-files-to-the-local-git-repository)
+- [The move from local Git repos to a Git server](#the-move-from-local-git-repos-to-a-git-server)
+- [Sync local Git repository to GitHub for the first time](#sync-local-git-repository-to-github-for-the-first-time)
+- [Unit testing](#unit-testing)
+- [Add support for Behavior Driven Development](#add-support-for-behavior-driven-development)
+
+<!-- /TOC -->
 
 ## TODO
 
@@ -83,18 +87,18 @@ When you save the file, vertical rulers will pop up when you edit a Python sourc
 
 Markdown files are added to Python projects as the format of choice for readme files (readme.md) and other documentation.
 
-I configure Markdown slightly differently:
+I configure Markdown like this:
 
 ``` json
 {
     "[markdown]": {
-        "editor.wordWrapColumn": 100,
+        "editor.wordWrapColumn": 72,
         "editor.wordWrap": "wordWrapColumn"
     },
 }
 ```
 
-This will activate word wrapping for Markdown files, with a width of 100 characters.
+This will activate word wrapping for Markdown files, with a width of 72 characters.
 
 ### How to deal with keyboard shortcuts
 
@@ -112,9 +116,15 @@ Assuming that you are still in the Keyboard Shortcuts tab, start filtering for t
 
 The shortcut will be added to your user settings, in the file 'keybindings.json'. You can easily open and view this settings file when you are in the Keyboard Shortcuts tab, by pressing the *open settings* <img src="resources/open_settings_icon.png" alt="open settings icon" width="20"/> icon in the upper right corner of the screen. If you did everything by the book, your newly assigned command to toggle the terminal window size will be listed there (amongst other, if you already played with assigning shortcuts before). Alternatively, you can enter new shortcuts directly in 'keybindings.json', although you will miss the interaction presented in the Keyboard Shortcuts tab.  
 
+#### The Insert key
+
+One particularity of VSCode is that the Insert key is not supported in the editor. This is consistent behavior in most Microsoft products, because Notepad, Word and Outlook support the Insert key neither by default, although the Office products can be configured to do so. On the other hand, most code editors do support the Insert key, including Microsoft Visual Studio.  
+
+There have been feature requests to add this functionality for a long time, but we do not have to wait for Microsoft to implement this, as there is a extension that activates the Insert key: [Overtype](https://marketplace.visualstudio.com/items?itemName=adammaras.overtype) by Adam Maras. It also adds the option to switch on 'paste with overwrite' which can be a handy feature, especially in Markdown and Gherkin tables.
+
 ### Adding a linter  
 
-When you code Python using the official VSCode Python extension, you have the ability to have your code checked at all times by a so called *linter*. A *linter* is a utility that checks if your code is standards-compliant. In the case of Python, the standards are listed in the [Python PEP-rules](https://www.python.org/dev/peps/). PEP means Python Enhancement Proposal. Any enhancement to the language is described here.  
+When you code Python using the official VSCode Python extension, you have the ability to have your code checked at all times by a so called _linter_. A _linter_ is a utility that checks if your code is standards-compliant. In the case of Python, the standards are listed in the [Python PEP-rules](https://www.python.org/dev/peps/). PEP means Python Enhancement Proposal. Any enhancement to the language is described here.  
 
 Most languages are supported by one or more linters. Some of these may be part of the language distribution itself, and others are provided by third party developers. Python is supported by a large number of linters. Each one of these has different strengths, and you are advised to study the documentation of each of the linters to choose your favorite, or the linter that supports a particular use case.  
 
@@ -124,7 +134,7 @@ To set up a linter in VSCode, you press the *control shift p* shortcut to bring 
 
 When you have installed the linter, you press *control shift p* and type *python: run linting* to run the linter in your current tab (which should be loaded with a Python source file). If the linter encounters a problem (some code that does not comply to the rules), it will show these in the problem tab of the terminal window in VSCode. When you click on the problem(s) with the left mouse button, the offensive part of your code will be displayed in the editor window.  
 
-By the way: when you save your Python file, your code will be checked automatically. And in the latest versions of VSCode, online real-time checking is also enabled. This means that explicit commands to run a linter are mostly interesting, when you temporarily select an alternative linter (by repeating the command in the previous paragraphs). One of the most interesting alternatives to Flake8 is [Bandit](https://github.com/PyCQA/bandit). Bandit scans your code for security vulnerabilities. After the scan you repeat *python: select linter* once again to switch back to Flake8. Another interesting linter is Pylint. Pylint can give a lot of feedback. It is advised to not use Pylint as your primary linter, but as an extra, because it sometimes is too harsh/strict on your code.  
+By the way: when you save your Python file, your code will be checked automatically. And in the latest versions of VSCode, online real-time checking is also enabled. This means that explicit commands to run a linter are mostly interesting, when you temporarily select an alternative linter (by repeating the command in the previous paragraphs). One of the most interesting alternatives to Flake8 is [Bandit](https://github.com/PyCQA/bandit). Bandit scans your code for security vulnerabilities. After the scan you repeat *python: select linter* once again to switch back to Flake8. Another interesting linter is Pylint. Pylint can give a lot of feedback, and follows the PEP8 rules very strictly.
 
 ### Other nice extensions
 
@@ -132,7 +142,8 @@ Python is the only extension needed to start coding. But you can improve your wo
 
 Extension title | Use
 --- | ---
-AutoHotkey (slevesque)        | AutoHotkey support (to automate Windows actions)
+Auto Markdown TOC (Hunter Tran)| Generates/updates table of contents
+AutoHotkey (slevesque)         | AutoHotkey support (to automate Windows actions)
 Cucumber (Gherkin) Full Support (Alexander Krechik) | Gherkin .feature language support  
 File Utils (Steffen Leistner)  | Add lots of file operations  
 Git History (Don Jayamanne)    | Compare several versions of the same source  
@@ -141,7 +152,9 @@ gitignore (CodeZombie)         | Language support of .gitignore files
 List Files (Don Jayamanne)     | List and open files quicker  
 markdownlint (David Anson)     | Linter for Markdown files, which enforces compatibility between several parsers  
 Open in GitHub (Fabio Spampinato) | Open the project or the current file in GitHub in your browser
+Overtype (Adam Maras)         | Activate the Insert key in the editor
 Paste JSON as code (quicktype) | Change selected JSON in any language variable assignment, and vice versa  
+Path Autocomplete (Mihai Vilcu)| Path completion suggestions while typing code
 PlantUML (jebbs)               | PlantUML syntax checker + integrated viewer  
 Remote - WSL (Microsoft)       | Connect VSCode (windows) to your WSL Linux installation and use that as your dev environment
 Rust (rls) (rust-lang)         | Rust language support  
@@ -321,7 +334,7 @@ BDD also starts with this idea, but adds more depth to it: it combines the way w
 
 There are multiple BDD-libraries for Python. *Behave* and *pytest-bdd* are the prime examples. Behave does not integrate with pytest, as it is a standalone library. So we will use pytest-bdd instead. BDD-support for pytest is added easily by installing the pytest-bdd plugin from the command line (open the command line with *control `* from within VSCode) and entering:  
 
-``` shell
+``` console
 pip install pytest-bdd
 ```
 
