@@ -18,7 +18,7 @@ Its main functions are:
 * Manage dependencies between module versions within a project.
 * Create and freeze installation files for a project, to help releases to other platforms and to other environments (stages).
 
-## What problem does Pipenv solve?
+## What problem does Pipenv solve
 
 Pipenv actually solves more than one problem. As stated in the introduction, it has four main functions.  
 
@@ -28,13 +28,11 @@ Next to this, it will by default create project-specific module installations. P
 
 When you are done developing your project, you can freeze the module versions that you used, send the frozen module versions list to the environment where you want to deploy your project, run Pipenv over there and rest assured that the correct versions will be installed over there. As the frozen versions list is created independently from the installed versions in your development environment, you can keep updating versions over there, and send the latest 'frozen' list with each deployment. This way of working supports continuous deployment perfectly, and is easy to automate.  
 
-Pipenv is promoted by the Python organization for these tasks, as a replacement for Pip and Venv.  
-
 ## Install Pipenv
 
-Pipenv is installed through the `pip` command. You install it like this:  
+Pipenv is (ironically) installed with the `pip` command. You install it like this:  
 
-```console
+``` console
 pip install pipenv
 ```
 
@@ -44,13 +42,13 @@ Pipenv is to be used from the command line. Just like `git`, you have to navigat
 
 Assuming you have now navigated successfully to the project root folder, you start the pipenv shell. Type:
 
-```console
+``` console
 pipenv shell
 ```
 
 The command line will be prepended with a string identifying your project. Suppose that your project (and, hence, your root folder) is named `baldursgate`, your terminal line will be identified like this:
 
-```console
+``` console
 (baldursgate-7IUbXOit) C:\Users\you\Documents\development\baldursgate>
 ```
 
@@ -86,7 +84,7 @@ When you are done developing your project, you want to deploy the software in a 
 
 In order to make sure that you deploy with the module versions that you used during the test, you must freeze the module version configuration directly after finishing your test:
 
-```console
+``` console
 pipenv lock
 ```
 
